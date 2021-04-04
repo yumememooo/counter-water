@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import React from "react";
+import React, { useState } from "react";
 import { GrAdd, GrSubtract } from "react-icons/gr";
 
 import waterIcon from "./images/summer-cold-water.svg";
@@ -35,12 +35,21 @@ const ItemBlock = styled.div`
   }
 `;
 
+export const functionName = (params) => {
+
+}
+
 export default function Counter() {
-  const count = 0;
+
+  const [count, setCount] = useState(0);
+
 
   return (
     <Container>
-      <ActionBlock>
+      <ActionBlock onClick={() => {
+        setCount(count - 1);
+        console.log(`current Count is ${count}`);
+      }}>
         <GrSubtract />
       </ActionBlock>
 
@@ -48,7 +57,10 @@ export default function Counter() {
         <img src={waterIcon} alt="waterIcon" />
         <div> {count}</div>
       </ItemBlock>
-      <ActionBlock>
+      <ActionBlock onClick={() => {
+        setCount(count + 1);
+        console.log(`current Count is ${count}`);
+      }}>
         <GrAdd />
       </ActionBlock>
     </Container>
