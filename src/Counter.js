@@ -40,25 +40,29 @@ const ItemBlock = styled.div`
   line-height: 1.75em;
 `;
 
-export const functionName = (params) => {
-
-}
 
 export default function Counter() {
 
   const [count, setCount] = useState(0);
+
+  const handelSubtract = () => {
+    setCount(count - 1);
+    console.log(`current Count is ${count}`);
+  };
+  const handelAdd = () => {
+    setCount(count + 1);
+    console.log(`current Count is ${count}`);
+  };
 
 
   return (
 
     <Container  >
       { console.log('render')}
-      <ActionBlock onClick={() => {
-        setCount(count - 1);
-        console.log(`current Count is ${count}`);
-      }} style={{
-        visibility: count <= 0 && 'hidden',
-      }}
+      <ActionBlock onClick={handelSubtract}
+        style={{
+          visibility: count <= 0 && 'hidden',
+        }}
       >
         <GrSubtract />
       </ActionBlock>
@@ -67,12 +71,10 @@ export default function Counter() {
         <img src={waterIcon} alt="waterIcon" />
         <div> {count}/10</div>
       </ItemBlock>
-      <ActionBlock onClick={() => {
-        setCount(count + 1);
-        console.log(`current Count is ${count}`);
-      }} style={{
-        visibility: count >= 10 && 'hidden',
-      }}>
+      <ActionBlock onClick={handelAdd}
+        style={{
+          visibility: count >= 10 && 'hidden',
+        }}>
         <GrAdd />
       </ActionBlock>
     </Container >
