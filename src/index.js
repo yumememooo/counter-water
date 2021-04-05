@@ -1,5 +1,9 @@
 import { StrictMode } from "react";
 import ReactDOM from "react-dom";
+import reset from 'react-style-reset';
+import { injectGlobal } from '@emotion/css';
+injectGlobal(reset, {
+});
 
 import App from "./App";
 

@@ -34,6 +34,8 @@ const ItemBlock = styled.div`
   img {
     width: 60px;
   }
+  font-family: Verdana;
+  line-height: 1.75em;
 `;
 
 export const functionName = (params) => {

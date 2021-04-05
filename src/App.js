@@ -1,9 +1,5 @@
 import "./styles.css";
 import Counter from "./Counter";
-import reset from 'react-style-reset';
-import { injectGlobal } from '@emotion/css';
-injectGlobal(reset, {
-});
 
 
 
@@ -11,7 +7,7 @@ injectGlobal(reset, {
 export default function App() {
   return (
     <div className="App">
-      My Counter
+      My Drank Water Counter
       <Counter />
     </div>
   );
