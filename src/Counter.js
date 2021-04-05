@@ -47,8 +47,8 @@ export default function Counter() {
 
   const [count, setCount] = useState(0);
 
-  const handelAction = (act) => {
-    return function () {
+  const handelAction = (act) =>
+    () => {
       if (act === SubtractAct) {
         setCount(count - 1);
       }
@@ -57,7 +57,7 @@ export default function Counter() {
       }
       console.log(`current Count is ${count}`);
     }
-  };
+    ;
 
 
   return (
