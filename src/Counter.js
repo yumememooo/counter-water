@@ -11,6 +11,8 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
+  -webkit-box-shadow: 10px 9px 8px -7px #5B534E; 
+  box-shadow: 10px 9px 8px -7px #5B534E;
 `;
 
 const ActionBlock = styled.div`
@@ -63,7 +65,7 @@ export default function Counter() {
 
       <ItemBlock>
         <img src={waterIcon} alt="waterIcon" />
-        <div> {count}</div>
+        <div> {count}/10</div>
       </ItemBlock>
       <ActionBlock onClick={() => {
         setCount(count + 1);
