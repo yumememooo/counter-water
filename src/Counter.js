@@ -5,7 +5,19 @@ import { GrAdd, GrSubtract } from "react-icons/gr";
 import waterIcon from "./images/summer-cold-water.svg";
 
 const Container = styled.div`
-  background-color: skyblue;
+  background-color: #CFE5EE;
+  height: 350px;
+  width: 500px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+`;
+
+
+const CounterBox = styled.div`
+  background-color: #87ceeb;
+  
   height: 150px;
   width: 300px;
   display: flex;
@@ -15,16 +27,29 @@ const Container = styled.div`
   box-shadow: 10px 9px 8px -7px #5B534E;
 `;
 
+const RecordBox = styled.div`
+  background-color: #69A1B8;
+  text-align: left; 
+  color:#5D676B;
+  height: 30px;
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  -webkit-box-shadow: 10px 9px 8px -7px #5B534E; 
+  box-shadow: 10px 9px 8px -7px #5B534E;
+`;
+
+
 const ActionBlock = styled.div`
   background-color: white;
   border-radius: 5px;
   height: 80px;
   padding: 10px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-  
 `;
 
 const ItemBlock = styled.div`
@@ -73,28 +98,36 @@ export default function Counter() {
   //TODO
   return (
 
-    <Container  >
-      { console.log('render')}
-      <ActionBlock onClick={handelAction(SubtractAct)}
-        style={{
-          visibility: count <= 0 && 'hidden',
-        }}
-      >
-        <GrSubtract />
-      </ActionBlock>
+    <Container >
+      <CounterBox>
+        {console.log('render')}
+        <ActionBlock onClick={handelAction(SubtractAct)}
+          style={{
+            visibility: count <= 0 && 'hidden',
+          }}
+        >
+          <GrSubtract />
+        </ActionBlock>
 
-      <ItemBlock>
-        <img src={waterIcon} alt="waterIcon" />
-        <div > {count}
-          {/* <Input type="number"></Input> TODO */}
+        <ItemBlock>
+          <img src={waterIcon} alt="waterIcon" />
+          <div > {count}
+            {/* <Input type="number"></Input> TODO */}
         /10</div>
-      </ItemBlock>
-      <ActionBlock onClick={handelAction(AddAct)}
-        style={{
-          visibility: count >= 10 && 'hidden',
-        }}>
-        <GrAdd />
-      </ActionBlock>
+        </ItemBlock>
+        <ActionBlock onClick={handelAction(AddAct)}
+          style={{
+            visibility: count >= 10 && 'hidden',
+          }}>
+          <GrAdd />
+        </ActionBlock>
+      </CounterBox>
+      <RecordBox>
+        Today:
+      </RecordBox>
     </Container >
+
+
+
   );
 }
