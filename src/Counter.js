@@ -40,16 +40,18 @@ const ItemBlock = styled.div`
   line-height: 1.75em;
 `;
 
+const SubtractAct = 'Subtract';
+const AddAct = 'Add';
 
 export default function Counter() {
 
   const [count, setCount] = useState(0);
 
   const handelAction = (act) => {
-    if (act === 'Subtract') {
+    if (act === SubtractAct) {
       setCount(count - 1);
     }
-    if (act === 'Add') {
+    if (act === AddAct) {
       setCount(count + 1);
     }
     console.log(`current Count is ${count}`);
@@ -60,7 +62,7 @@ export default function Counter() {
 
     <Container  >
       { console.log('render')}
-      <ActionBlock onClick={() => handelAction('Subtract')}
+      <ActionBlock onClick={() => handelAction(SubtractAct)}
         style={{
           visibility: count <= 0 && 'hidden',
         }}
@@ -72,7 +74,7 @@ export default function Counter() {
         <img src={waterIcon} alt="waterIcon" />
         <div> {count}/10</div>
       </ItemBlock>
-      <ActionBlock onClick={() => handelAction('Add')}
+      <ActionBlock onClick={() => handelAction(AddAct)}
         style={{
           visibility: count >= 10 && 'hidden',
         }}>
