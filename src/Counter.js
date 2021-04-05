@@ -43,6 +43,17 @@ const ItemBlock = styled.div`
 const SubtractAct = 'Subtract';
 const AddAct = 'Add';
 
+const Input = styled.input`
+    ::-webkit-inner-spin-button{
+        -webkit-appearance: none; 
+        margin: 0; 
+    }
+    ::-webkit-outer-spin-button{
+        -webkit-appearance: none; 
+        margin: 0; 
+    }    
+`;
+
 export default function Counter() {
 
   const [count, setCount] = useState(0);
@@ -59,7 +70,7 @@ export default function Counter() {
     }
     ;
 
-
+  //TODO
   return (
 
     <Container  >
@@ -74,7 +85,9 @@ export default function Counter() {
 
       <ItemBlock>
         <img src={waterIcon} alt="waterIcon" />
-        <div> {count}/10</div>
+        <div > {count}
+          {/* <Input type="number"></Input> TODO */}
+        /10</div>
       </ItemBlock>
       <ActionBlock onClick={handelAction(AddAct)}
         style={{
