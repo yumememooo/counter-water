@@ -7,7 +7,7 @@ import Counter from "./Counter";
 export default function App() {
   return (
     <div className="App">
-      My Drank Water Counter
+      My Water & Drink Counter
       <Counter />
     </div>
   );
