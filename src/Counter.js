@@ -22,6 +22,7 @@ const ActionBlock = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  
 `;
 
 const ItemBlock = styled.div`
@@ -45,11 +46,16 @@ export default function Counter() {
 
 
   return (
-    <Container>
+
+    <Container  >
+      { console.log('render')}
       <ActionBlock onClick={() => {
         setCount(count - 1);
         console.log(`current Count is ${count}`);
-      }}>
+      }} style={{
+        visibility: count <= 0 && 'hidden',
+      }}
+      >
         <GrSubtract />
       </ActionBlock>
 
@@ -60,9 +66,11 @@ export default function Counter() {
       <ActionBlock onClick={() => {
         setCount(count + 1);
         console.log(`current Count is ${count}`);
+      }} style={{
+        visibility: count >= 10 && 'hidden',
       }}>
         <GrAdd />
       </ActionBlock>
-    </Container>
+    </Container >
   );
 }
