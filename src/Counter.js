@@ -48,13 +48,15 @@ export default function Counter() {
   const [count, setCount] = useState(0);
 
   const handelAction = (act) => {
-    if (act === SubtractAct) {
-      setCount(count - 1);
+    return function () {
+      if (act === SubtractAct) {
+        setCount(count - 1);
+      }
+      if (act === AddAct) {
+        setCount(count + 1);
+      }
+      console.log(`current Count is ${count}`);
     }
-    if (act === AddAct) {
-      setCount(count + 1);
-    }
-    console.log(`current Count is ${count}`);
   };
 
 
@@ -62,7 +64,7 @@ export default function Counter() {
 
     <Container  >
       { console.log('render')}
-      <ActionBlock onClick={() => handelAction(SubtractAct)}
+      <ActionBlock onClick={handelAction(SubtractAct)}
         style={{
           visibility: count <= 0 && 'hidden',
         }}
@@ -74,7 +76,7 @@ export default function Counter() {
         <img src={waterIcon} alt="waterIcon" />
         <div> {count}/10</div>
       </ItemBlock>
-      <ActionBlock onClick={() => handelAction(AddAct)}
+      <ActionBlock onClick={handelAction(AddAct)}
         style={{
           visibility: count >= 10 && 'hidden',
         }}>
